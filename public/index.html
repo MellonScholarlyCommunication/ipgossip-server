@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <title>IP Gossip Server</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1>IP Gossip Server</h1>
+
+            <h2>Known IPs</h2>
+
+            <a href="gossip.jsonld">Gossip IPs</a>
+            
+            <h2>API</h2>
+
+            <h3>/inbox/</h3>
+
+            <article>
+                An <a href="https://www.eventnotifications.net">Event Notifications</a>
+                LDN Inbox accepting Event Notification Offers.
+
+                <p>
+                    <h4>Example</h4>
+                    <pre>
+curl -X POST -H 'Content-Type: application/ld+json' --data-binary '@examples/announce.jsonld' http://localhost:8000/inbox/
+                    </pre>
+
+                    where <tt>offer.jsonld</tt>:
+
+                    <pre>
+{ 
+    "@context": "https://www.w3.org/ns/activitystreams" , 
+    "id": "urn:uuid:6E5FAF88-A7F1-47A4-B087-77345EBFF495",
+    "type": "Announce",
+    "actor": {
+        "id": "https://acme.org/profile/card#us",
+        "inbox": "https://acme.org/inbox/",
+        "type": "Organization"
+    },
+    "object": {
+        "id": "157.193.101.1"
+    }
+}
+                    </pre>
+                </p>
+            </article>
+          </main>
+    </body>
+</html>

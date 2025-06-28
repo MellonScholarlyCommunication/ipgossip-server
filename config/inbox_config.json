@@ -1,0 +1,22 @@
+{
+    "notification_handler": {
+        "multi": {
+            "handlers": [
+                [
+                 { 
+                    "id": "@handler/notification_handler/jsonpath_filter.js",
+                    "anyOf": [ 
+                        [ 
+                            { "path": "$.type" , "value": "Announce" } 
+                        ]
+                    ]
+                 }, 
+                 {
+                    "id": "handler/update_gossip_db.js",
+                    "$lock": true
+                 }
+                ] 
+            ]
+        }
+    }
+}

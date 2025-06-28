@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "server": "npx ldn-inbox-server start-server",
+    "demo-post": "curl -X POST -H 'Content-Type: application/ld+json' --data-binary '@examples/announce.jsonld' http://localhost:8000/inbox/",
+    "demo-post2": "curl -X POST -H 'Content-Type: application/ld+json' --data-binary '@examples/announce2.jsonld' http://localhost:8000/inbox/",
+    "handle-inbox": "npx ldn-inbox-server handler @inbox -hn @handler/notification_handler/multi.js",
+    "real-clean": "rm inbox/* error/* public/gossip*"
+  },
+  "dependencies": {
+    "ldn-inbox-server": "^1.8.5"
+  }
+}
